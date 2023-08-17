@@ -30,10 +30,16 @@ function NewFeed() {
 
 
     const changePage = (pageNo=0, pageSize=5)=>{
-     
+     if(pageNo > postContent.pageNo && postContent.lastPage){
+      return ;
+     }
+     if(pageNo < postContent.pageNo && postContent.pageNo===0){
+      return ;
+     }
       loadAllPosts(pageNo, pageSize)
       .then(data=>{
         setPostContent(data)
+        console.log(data);
         window.scroll(0,0)
       }).catch(error=>{
         toast.error("Error in loading data")
@@ -48,7 +54,8 @@ function NewFeed() {
         <h3>
           Blogs Count: { postContent?.totalElements } | 
           pageSize: { postContent?.pageSize } |
-          totalPages: { postContent?.totalPages } 
+          totalPages: { postContent?.totalPages } |
+          page no: { postContent?.pageNo +1 } 
         </h3>
         {
           postContent.content.map((post)=>(
@@ -63,7 +70,7 @@ function NewFeed() {
       href="#"
     />
   </PaginationItem>
-  <PaginationItem onClick={()=>changePage(-- postContent.pageNo)} disabled ={postContent.pageNo===0}  >
+  <PaginationItem onClick={()=>changePage( postContent.pageNo -1)} disabled ={postContent.pageNo===0}  >
     <PaginationLink
       href="#"
       previous
@@ -82,7 +89,7 @@ function NewFeed() {
     ))
   }
   
-  <PaginationItem onClick={()=>changePage(++ postContent.pageNo )} disabled={postContent.lastPage}>
+  <PaginationItem onClick={()=>changePage(postContent.pageNo +1)} disabled={postContent.lastPage}>
     <PaginationLink
       href="#"
       next
