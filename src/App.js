@@ -12,6 +12,7 @@ import Privateroute from './components/Privateroute';
 import ProfileInfo from './pges/UserRoutes/ProfileInfo';
 import Services from './pges/Services';
 import AddPost from './components/AddPost';
+import PostPage from './pges/PostPage';
 
 function App() {
   return (
@@ -23,13 +24,13 @@ function App() {
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/about" element={<About />}></Route>
       <Route path="/services" element={<Services />}></Route>
+      <Route path="/posts/:postId" element={<PostPage />}></Route>
+
 
       <Route path="/user" element={<Privateroute />}>
-
-      <Route path="dashboard" element={<Userdashboard />}></Route>
-      <Route path="profile" element={<ProfileInfo />}></Route>
-      <Route path="add-post" element={<AddPost />}></Route>
-      
+        <Route path="dashboard" element={<Userdashboard />}></Route>
+        <Route path="profile" element={<ProfileInfo />}></Route>
+        <Route path="add-post" element={<AddPost />}></Route>
       </Route>
       
     </Routes>
