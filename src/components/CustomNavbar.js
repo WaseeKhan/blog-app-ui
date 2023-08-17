@@ -42,7 +42,7 @@ const CustomNavbar = () => {
   
   return (
     <div>
-      <Navbar 
+      <Navbar
       color='dark' dark expand="md" fixed='' className='px-5'>
         <NavbarBrand tag={ReactLink} to="/">Gada Blog</NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -50,7 +50,7 @@ const CustomNavbar = () => {
           <Nav className="me-auto" navbar>
           
           <NavItem>
-              <NavLink tag={ReactLink} to="/">Home</NavLink>
+              <NavLink tag={ReactLink} to="/">New Feed</NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={ReactLink} to="/about">About</NavLink>

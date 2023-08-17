@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Base from '../components/Base'
+import NewFeed from '../components/NewFeed'
+import { Container } from 'reactstrap'
 
 const Home = () => {
+
   return (
-    
-    
       <Base>
-      <h1>This is home Page</h1>
+      <Container>
+      <NewFeed />
+      </Container>
       
+    
       </Base>
     
     

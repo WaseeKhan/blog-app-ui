@@ -5,12 +5,13 @@ import JoditEditor from 'jodit-react';
 import { createPost as doCreatePost } from '../services/PostService';
 import { getCurrentUserDetail } from '../auth';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddPost = () => {
 
     const editor = useRef(null);
-    
+    // const [content, setContent] = useState('');
     // const config = {
     //     placeholder:'Write Something Amazing . . . '
     // }
@@ -24,7 +25,7 @@ const AddPost = () => {
         categoryId:''
     })
 
-    // const [content, setContent] = useState('');
+    const navigate = useNavigate();
 
     
     useEffect(
@@ -41,7 +42,7 @@ const AddPost = () => {
 
 
         const fieldChanged=(event)=>{
-            // console.log(event.target.content)
+            console.log(event.target.content)
             setPost({...post, [event.target.name]: event.target.value})
         }
 
@@ -62,7 +63,7 @@ const AddPost = () => {
 const createPost = (event)=>{
     event.preventDefault();
     console.log("Form SUbmitted")
-    // console.log(post)
+    console.log(post)
 
     if(post.title.trim()===''){
         toast.error("Post Title Required!!")
@@ -82,12 +83,13 @@ const createPost = (event)=>{
    post['userId'] = user.id
    doCreatePost(post).then(data=>{
         // alert("Post Created!!")
-        toast.success("Congratulations! Post Created")
+        toast.success("Congratulations! Post Created!")
     setPost({
         title:'',
         content: '',
         categoryId:''
     })
+        navigate('/')
         console.log(post)
     }).catch((error)=>{
         // alert("error")
@@ -142,11 +144,11 @@ const createPost = (event)=>{
     </FormGroup>
     
     <FormGroup>
-        <Label for="Category">
+        <Label for="category">
         Category
         </Label>
         <Input
-        id="Category"
+        id="category"
         name="categoryId"
         type="select"
         onChange={fieldChanged}
