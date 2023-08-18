@@ -26,6 +26,7 @@ function NewFeed() {
       // })
 
       changePage(0)
+      
     },[])
 
 

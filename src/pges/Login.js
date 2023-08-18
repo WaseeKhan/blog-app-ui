@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Base from '../components/Base'
 
-import { Form, Button, Card, CardBody, CardHeader, FormGroup, Input, Label, Row, Col } from 'reactstrap'
+import { Form, Button, Card, CardBody, CardHeader, FormGroup, Input, Label, Row, Col, Spinner } from 'reactstrap'
 import { toast } from 'react-toastify'
 import { loginUser } from '../services/UserService'
 import { doLogin } from '../auth'
@@ -119,6 +119,7 @@ const handleFormSubmit = (e) =>{
           <Button 
           
           color='success'>
+            
             Login
           </Button>
           <Button

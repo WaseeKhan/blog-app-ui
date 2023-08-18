@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Card, CardBody, CardText } from 'reactstrap'
+import { Card, CardBody, CardText } from 'reactstrap'
 
 function Post({post={ title:"This is default post title", content:"This is Post Content" }}) {
   return (
@@ -9,7 +9,7 @@ function Post({post={ title:"This is default post title", content:"This is Post 
                 <h2>{post.title}</h2>
                 {/* html tag issue resolved */}
             <CardText dangerouslySetInnerHTML={{ __html: post.content.substring(0,50) + ". . ."}}>
-                
+               
             </CardText>
 
             <div>
