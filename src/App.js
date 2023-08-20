@@ -14,6 +14,7 @@ import Services from './pges/Services';
 import AddPost from './components/AddPost';
 import PostPage from './pges/PostPage';
 import UserProvider from './context/UserProvider';
+import Categories from './pges/Categories';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
       <Route path="/about" element={<About />}></Route>
       <Route path="/services" element={<Services />}></Route>
       <Route path="/posts/:postId" element={<PostPage />}></Route>
-
+      <Route path="/categories/:categoryId" element={<Categories />}></Route>
 
       <Route path="/user" element={<Privateroute />}>
         <Route path="dashboard" element={<Userdashboard />}></Route>

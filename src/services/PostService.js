@@ -34,3 +34,9 @@ export const uploadPostImage =(image, postId)=>{
   })
   .then((response)=>(response.data))
 }
+
+export const loadPostCategoryWise =(categoryId)=>{
+  return myAxios.get(`/category/${categoryId}/posts`)
+  .then(res=>res.data)
+
+}
