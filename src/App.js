@@ -15,6 +15,7 @@ import AddPost from './components/AddPost';
 import PostPage from './pges/PostPage';
 import UserProvider from './context/UserProvider';
 import Categories from './pges/Categories';
+import Index from './TypingApp/Index'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/services" element={<Services />}></Route>
       <Route path="/posts/:postId" element={<PostPage />}></Route>
       <Route path="/categories/:categoryId" element={<Categories />}></Route>
+      <Route path="/typing-app" element={<Index />}></Route>
 
       <Route path="/user" element={<Privateroute />}>
         <Route path="dashboard" element={<Userdashboard />}></Route>
