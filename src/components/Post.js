@@ -11,7 +11,7 @@ function Post({post={ title:"This is default post title", content:"This is Post 
             <CardText dangerouslySetInnerHTML={{ __html: post.content.substring(0,50) + ". . ."}}>
                
             </CardText>
-
+            
             <div>
                 <Link className='btn btn-secondary border-1'
                 to={'/posts/'+post.postId}>Read More</Link>

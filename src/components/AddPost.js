@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 import { Button, Card,CardHeader, CardBody, Form, FormGroup, Input, Label, Container } from 'reactstrap'
 import { loadAllCategories } from '../services/CategoryService'
 import JoditEditor from 'jodit-react';
-import { createPost as doCreatePost } from '../services/PostService';
+import { createPost as doCreatePost, uploadPostImage } from '../services/PostService';
 import { getCurrentUserDetail } from '../auth';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+
 
 
 const AddPost = () => {
@@ -24,6 +25,8 @@ const AddPost = () => {
         content: '',
         categoryId:''
     })
+
+    const [image, setImage] = useState(null)
 
     const navigate = useNavigate();
 
@@ -83,6 +86,16 @@ const createPost = (event)=>{
    post['userId'] = user.id
    doCreatePost(post).then(data=>{
         // alert("Post Created!!")
+
+        uploadPostImage(image, data.postId)
+        .then(data=>{
+            toast.success("Image Uploaded!!")
+        }).catch(error=>{
+            toast.error("Error in uploading Image")
+            console.log(error)
+        })
+
+
         toast.success("Congratulations! Post Created!")
     setPost({
         title:'',
@@ -98,6 +111,10 @@ const createPost = (event)=>{
     })
 }
 
+const handleFileChange = (event) =>{
+    console.log(event.target.files[0])
+    setImage(event.target.files[0])
+}
 
 
   return (
@@ -142,7 +159,20 @@ const createPost = (event)=>{
         onChange={contentFieldChanged}
         />
     </FormGroup>
-    
+
+    {/* Image upoad start*/}
+
+        <div className="mt-3">
+        <label for="image">Upload Image</label>
+        <Input type='file' id="image"  
+        onChange={handleFileChange}
+        >
+
+        </Input>
+        </div>
+    {/* image upload end */}
+
+    <div className="mt-3">
     <FormGroup>
         <Label for="category">
         Category
@@ -168,6 +198,7 @@ const createPost = (event)=>{
        
         </Input>
     </FormGroup>
+    </div>
     <Container className='text-center'>
     <Button type='submit' className=' rounded-0' color='primary'>
         Create Post

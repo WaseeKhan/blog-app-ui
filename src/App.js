@@ -13,9 +13,11 @@ import ProfileInfo from './pges/UserRoutes/ProfileInfo';
 import Services from './pges/Services';
 import AddPost from './components/AddPost';
 import PostPage from './pges/PostPage';
+import UserProvider from './context/UserProvider';
 
 function App() {
   return (
+    <UserProvider>
   <BrowserRouter>
 
     <Routes>
@@ -36,6 +38,7 @@ function App() {
     </Routes>
     <ToastContainer />
   </BrowserRouter>
+  </UserProvider>
   );
 }
 
