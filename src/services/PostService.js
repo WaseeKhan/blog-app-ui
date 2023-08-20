@@ -40,3 +40,9 @@ export const loadPostCategoryWise =(categoryId)=>{
   .then(res=>res.data)
 
 }
+
+export const loadPostUserWise =(userId)=>{
+  return privateAxios.get(`/user/${userId}/posts`)
+  .then(res=>res.data)
+}
+
