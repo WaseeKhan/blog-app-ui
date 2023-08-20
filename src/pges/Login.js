@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Base from '../components/Base'
 
 import { Form, Button, Card, CardBody, CardHeader, FormGroup, Input, Label, Row, Col, Spinner } from 'reactstrap'
@@ -6,9 +6,10 @@ import { toast } from 'react-toastify'
 import { loginUser } from '../services/UserService'
 import { doLogin } from '../auth'
 import { useNavigate } from 'react-router-dom'
+import userContext from '../context/userContext'
 
 function Login() {
-
+const userContextData = useContext(userContext);
 
   const navigate = useNavigate();
 
@@ -48,7 +49,11 @@ const handleFormSubmit = (e) =>{
     doLogin(data, ()=>{
       console.log("Login details is saved to local Storage")
       //redirect to dashboard
+        userContextData.setUser({
+          data:data,
+          login:true,
 
+        });
       navigate("/user/dashboard")
 
       

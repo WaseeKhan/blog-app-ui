@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, CardBody, CardText } from 'reactstrap'
 import { getCurrentUserDetail, isLoggedIn } from '../auth'
+import userContext from '../context/userContext'
 
 function Post({post={id:-1, title:"This is default post title", content:"This is Post Content"},deletePost}) {
+
+
+  const userContextData = useContext(userContext)
 
   const [user, setUser] = useState(null)
   const [login, setLogin] = useState(null)
@@ -26,7 +30,7 @@ function Post({post={id:-1, title:"This is default post title", content:"This is
                 <Link className='btn btn-secondary border-1'
                 to={'/posts/'+post.postId}>Read More</Link>
              {
-              isLoggedIn && (user && user.id===post.user.id ? 
+              userContextData.user.login && (user && user.id===post.user.id ? 
               <Button 
               onClick={()=>deletePost(post)}
                 color='danger' className='ms-2'>
