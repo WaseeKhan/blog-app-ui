@@ -46,3 +46,7 @@ export const loadPostUserWise =(userId)=>{
   .then(res=>res.data)
 }
 
+export function deletePostService(postId){
+  return privateAxios.delete(`/posts/${postId}`).then(res=>res.data)
+
+}
