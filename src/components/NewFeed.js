@@ -80,12 +80,12 @@ function NewFeed() {
     <Row>
       <Col md={{size:12}}>
 
-        <h3>
+        {/* <h3>
           Blogs Count: { postContent?.totalElements } | 
           pageSize: { postContent?.pageSize } |
           totalPages: { postContent?.totalPages } |
           page no: { postContent?.pageNo +1 } 
-        </h3>
+        </h3> */}
 
         <InfiniteScroll 
         dataLength={postContent.content.length}

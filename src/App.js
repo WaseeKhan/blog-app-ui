@@ -17,6 +17,8 @@ import UserProvider from './context/UserProvider';
 import Categories from './pges/Categories';
 import Index from './TypingApp/Index'
 import UpdateBlog from './pges/UpdateBlog';
+import Dashboard from './pges/UserRoutes/Dashboard';
+import YourPosts from './pges/UserRoutes/YourPosts';
 
 
 
@@ -36,10 +38,12 @@ function App() {
       <Route path="/typing-app" element={<Index />}></Route>
 
       <Route path="/user" element={<Privateroute />}>
-        <Route path="dashboard" element={<Userdashboard />}></Route>
+        {/* <Route path="dashboard" element={<Userdashboard />}></Route> */}
+        <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="profile/:userId" element={<ProfileInfo />}></Route>
         <Route path="add-post" element={<AddPost />}></Route>
         <Route path="update-blog/:blogId" element={<UpdateBlog />}></Route>
+        <Route path="your-posts/" element={<YourPosts />}></Route>
       </Route>
       
     </Routes>

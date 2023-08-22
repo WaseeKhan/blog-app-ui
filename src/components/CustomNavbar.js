@@ -54,10 +54,10 @@ const CustomNavbar = () => {
   
   return (
     <div>
-      <Navbar style={{ backgroundColor: '#610345' }} 
-       full expand="md" container="md" className='px-5'>
-        <NavbarBrand style={{color:'#FFFFFF'}} tag={ReactLink} to="/">
-          <img src={logo} style={{maxWidth:'100px', maxHeight:'100px',  overflow: "hidden"}}/>
+      <Navbar style={{ backgroundColor: '#610345'}} 
+       full expand="md" container="md" >
+        <NavbarBrand style={{color:'#FFFFFF', fontWeight:'bold'}} tag={ReactLink} to="/">
+         <img src={logo} style={{maxWidth:'100px', maxHeight:'50px'}} /> Artikance
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -99,17 +99,24 @@ const CustomNavbar = () => {
 
               <DropdownItem>Hi! {user.name}</DropdownItem>
 
+              <DropdownItem tag={ReactLink} to="/user/dashboard" >
+                    Dashboard
+                </DropdownItem>
+                
                 <DropdownItem tag={ReactLink} to={`/user/profile/${user.id}`}>
                     Profile
                 </DropdownItem>
 
-                <DropdownItem tag={ReactLink} to="/user/dashboard" >
-                    Dashboard
+                
+
+                <DropdownItem tag={ReactLink} to="/user/add-post" >
+                    Create Post
                 </DropdownItem>
 
                 <DropdownItem onClick={logout} href=''>
                     Logout
                 </DropdownItem>
+                
                 
                 <DropdownItem divider />
                 <DropdownItem>More</DropdownItem>

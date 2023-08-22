@@ -87,7 +87,7 @@ const handleFormSubmit = (e) =>{
     <div className="container">
     <Row className='mt-5'>
       <Col sm={{size:6, offset:3}}>
-      <Card color='dark'outline>
+      <Card color='dark' outline>
       <CardHeader>
         <h1 className='text-center'>Please Login Here</h1>
       </CardHeader>

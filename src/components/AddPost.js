@@ -6,6 +6,7 @@ import { createPost as doCreatePost, uploadPostImage } from '../services/PostSer
 import { getCurrentUserDetail } from '../auth';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Base from './Base';
 
 
 
@@ -118,7 +119,8 @@ const handleFileChange = (event) =>{
 
 
   return (
-    <div className="wrapper">
+    <Base>
+    <Container>
       <Card className='shadow-lg mt-3'>
         
         <CardHeader>
@@ -126,7 +128,7 @@ const handleFileChange = (event) =>{
       </CardHeader>
       <CardBody>
         {/* {JSON.stringify(post)} */}
-<Form onSubmit={createPost}>
+    <Form onSubmit={createPost}>
     <FormGroup>
         <Label for="title">
         Title
@@ -216,8 +218,10 @@ const handleFileChange = (event) =>{
   
       </Card>
 
-    </div>
+      </Container>
+      </Base>
   )
 }
+
 
 export default AddPost
