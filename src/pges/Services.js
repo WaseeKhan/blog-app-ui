@@ -11,7 +11,7 @@ const Services = () => {
         <Base>
         <div>
             <h1>This is Services </h1>
-            <h1>Hi {user.user.login && user.user.data.user.name}</h1>
+            <h1>Hi {user.user.login && user.user.data.name}</h1>
         </div>
       </Base>
 

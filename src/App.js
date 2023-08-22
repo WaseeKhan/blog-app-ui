@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import About from './pges/About';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import Home from './pges/Home';
 import Login from './pges/Login';
 import Signup from './pges/Signup';
@@ -17,6 +17,8 @@ import UserProvider from './context/UserProvider';
 import Categories from './pges/Categories';
 import Index from './TypingApp/Index'
 import UpdateBlog from './pges/UpdateBlog';
+
+
 
 function App() {
   return (
@@ -35,7 +37,7 @@ function App() {
 
       <Route path="/user" element={<Privateroute />}>
         <Route path="dashboard" element={<Userdashboard />}></Route>
-        <Route path="profile" element={<ProfileInfo />}></Route>
+        <Route path="profile/:userId" element={<ProfileInfo />}></Route>
         <Route path="add-post" element={<AddPost />}></Route>
         <Route path="update-blog/:blogId" element={<UpdateBlog />}></Route>
       </Route>

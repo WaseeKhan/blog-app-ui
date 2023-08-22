@@ -9,7 +9,7 @@ const About = () => {
         <Base>
         <h1>This is About Page</h1>
         {console.log(object)}
-        <h1>Welcome user: {object.user.login && object.user.data.user.name}</h1>
+        <h1>Welcome user: {object.user.login && object.user.data.name}</h1>
         </Base>
       )}
     </userContext.Consumer>

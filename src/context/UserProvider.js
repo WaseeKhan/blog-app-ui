@@ -11,7 +11,7 @@ function UserProvider({children}) {
 
     useEffect(()=>{
       setUser({
-        data:getCurrentUserDetail(),
+        data: getCurrentUserDetail(),
         login:isLoggedIn()
       })
     }, [])

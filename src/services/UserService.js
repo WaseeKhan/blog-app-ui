@@ -1,5 +1,5 @@
 
-import { myAxios } from './Helper'
+import { myAxios, privateAxios } from './Helper'
 
 export const signup = (user) => {
   return myAxios
@@ -14,4 +14,6 @@ export const loginUser = (loginDetail) => {
   .then((response)=> response.data)
 };
 
-
+export const getUserById=(userId)=>{
+  return privateAxios.get(`/users/${userId}`).then(res=>res.data)
+}
