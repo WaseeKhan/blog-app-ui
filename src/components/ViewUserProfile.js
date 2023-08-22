@@ -22,7 +22,9 @@ useEffect(() => {
           <CardBody>
             <h2 className='text-uppercase text-center'>User Information</h2>
             <Container className='text-center'>
-             <img src={user.image ? user.image : profileImage}  alt='Profile Picture' className='img-fluids3 '/> 
+             <img src={user.image ? user.image : profileImage}  
+             style={{maxWidth:'200px', maxHeight:'200px'}}
+             alt='Profile Picture' className='img-fluids3 '/> 
             </Container>
             <Table responsive striped hover className='mt-5'>
             <tbody>

@@ -16,6 +16,10 @@ import {
 } from 'reactstrap';
 import { doLogout, getCurrentUserDetail, isLoggedIn } from '../auth';
 import userContext from '../context/userContext';
+import profileImage from '../images/defaultProfile.png';
+import logo from '../images/logo.png';
+
+import '../App.css';
 
 const CustomNavbar = () => {
 
@@ -50,59 +54,71 @@ const CustomNavbar = () => {
   
   return (
     <div>
-      <Navbar
-      color='dark' dark expand="md" fixed='' className='px-5'>
-        <NavbarBrand tag={ReactLink} to="/">Gada Blog</NavbarBrand>
+      <Navbar style={{ backgroundColor: '#610345' }} 
+       full expand="md" container="md" className='px-5'>
+        <NavbarBrand style={{color:'#FFFFFF'}} tag={ReactLink} to="/">
+          <img src={logo} style={{maxWidth:'100px', maxHeight:'100px',  overflow: "hidden"}}/>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
+
           <Nav className="me-auto" navbar>
-          
           <NavItem>
-              <NavLink tag={ReactLink} to="/">New Feed</NavLink>
+              <NavLink  style={{color:'#FFFFFF', fontFamily:'verdana' }} tag={ReactLink} to="/">HOME</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={ReactLink} to="/about">About</NavLink>
+              <NavLink style={{color:'#FFFFFF' , fontFamily:'verdana' }} tag={ReactLink} to="/about">ABOUT</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={ReactLink} to="/typing-app">Typing App</NavLink>
+              <NavLink style={{color:'#FFFFFF', fontFamily:'verdana' }} tag={ReactLink} to="/typing-app">TYPING APP</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={ReactLink} to="/services">Service</NavLink>
+              <NavLink style={{color:'#FFFFFF' , fontFamily:'verdana' }} tag={ReactLink} to="/services">SERVICES</NavLink>
             </NavItem>
             
             
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                More
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Services</DropdownItem>
-                <DropdownItem>Contact</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>More</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            
           </Nav>
           <Nav navbar>
             {
               login && (
                 <>
-                <NavItem>
-                  <NavLink tag={ReactLink} to={`/user/profile/${user.id}`}>
+
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav >
+                  <NavItem>
+                      {/* tag={ReactLink} to={`/user/profile/${user.id}`} */}
+                      
+                      <img src={user.image ? user.image : profileImage}
+                      className="rounded-circle border hover shadow" alt="DP"
+                      style={{maxWidth:'50px', maxHeight:'50px',  height: 'auto'}} />
+                      
+                </NavItem>
+              </DropdownToggle>
+              <DropdownMenu right>
+
+              <DropdownItem>Hi! {user.name}</DropdownItem>
+
+                <DropdownItem tag={ReactLink} to={`/user/profile/${user.id}`}>
                     Profile
-                  </NavLink>
-                </NavItem>
-                
-                <NavItem>
-                  <NavLink tag={ReactLink} to="/user/dashboard">
-                    Hello! {user.name}
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink onClick={logout} href=''>
+                </DropdownItem>
+
+                <DropdownItem tag={ReactLink} to="/user/dashboard" >
+                    Dashboard
+                </DropdownItem>
+
+                <DropdownItem onClick={logout} href=''>
                     Logout
-                  </NavLink>
-                </NavItem>
+                </DropdownItem>
+                
+                <DropdownItem divider />
+                <DropdownItem>More</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
+                
+               
+                
                 </>
               )
             }
@@ -111,12 +127,12 @@ const CustomNavbar = () => {
               !login && (
                 <>
                   <NavItem>
-                    <NavLink tag={ReactLink} to="/login">
+                    <NavLink style={{color:'#FFFFFF'}} tag={ReactLink} to="/login">
                       Login
                     </NavLink>
                     </NavItem>
                     <NavItem>
-                    <NavLink tag={ReactLink} to="/signup">
+                    <NavLink style={{color:'#FFFFFF'}} tag={ReactLink} to="/signup">
                       Signup
                     </NavLink>
                   </NavItem>
