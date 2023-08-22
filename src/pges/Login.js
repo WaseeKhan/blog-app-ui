@@ -50,7 +50,7 @@ const handleFormSubmit = (e) =>{
       console.log("Login details is saved to local Storage")
       //redirect to dashboard
         userContextData.setUser({
-          data:data,
+          data:data.user,
           login:true,
 
         });
