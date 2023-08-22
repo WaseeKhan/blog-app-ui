@@ -12,10 +12,10 @@ const Home = () => {
 
 
       <Row>
-        <Col md={2} className='pt-3'>
+        <Col md={3} className='pt-3'>
           <CategorySideMenu />
         </Col>
-        <Col md={10}>
+        <Col md={9}>
           <NewFeed />
         </Col>
       </Row>

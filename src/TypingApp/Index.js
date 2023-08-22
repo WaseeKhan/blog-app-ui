@@ -8,7 +8,7 @@ const NUMB_OF_WORD = 100
 const SECONDS = 60 //under development 
 
 function Index() {
-  const isBackgroundGreen = true;
+  
   const [words, setWords] = useState([])
   const [countDown, setCountDown] = useState([SECONDS])
   const [currInput, setCurrInput] = useState("")

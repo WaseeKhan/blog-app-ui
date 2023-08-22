@@ -21,6 +21,8 @@ export const loadPostById = (postId)=>{
   return myAxios.get("/posts/" +postId).then(response=>response.data);
 }
 
+
+
 // upload Image
 
 export const uploadPostImage =(image, postId)=>{
@@ -49,4 +51,9 @@ export const loadPostUserWise =(userId)=>{
 export function deletePostService(postId){
   return privateAxios.delete(`/posts/${postId}`).then(res=>res.data)
 
+}
+// load single post given Id
+
+export const loadPost = (postId) =>{
+  return myAxios.get(`posts/` +postId).then((response)=>response.data);
 }

@@ -53,7 +53,7 @@ function NewFeed() {
         })
 
         console.log(data);
-        // window.scroll(0,0)
+        window.scroll(0,0)
       }).catch(error=>{
         toast.error("Error in loading data")
       })

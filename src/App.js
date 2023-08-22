@@ -16,6 +16,7 @@ import PostPage from './pges/PostPage';
 import UserProvider from './context/UserProvider';
 import Categories from './pges/Categories';
 import Index from './TypingApp/Index'
+import UpdateBlog from './pges/UpdateBlog';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="dashboard" element={<Userdashboard />}></Route>
         <Route path="profile" element={<ProfileInfo />}></Route>
         <Route path="add-post" element={<AddPost />}></Route>
+        <Route path="update-blog/:blogId" element={<UpdateBlog />}></Route>
       </Route>
       
     </Routes>

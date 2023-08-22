@@ -37,6 +37,17 @@ function Post({post={id:-1, title:"This is default post title", content:"This is
                 Delete
               </Button> : '')
              }
+
+            {
+              userContextData.user.login && (user && user.id===post.user.id ? 
+              <Button tag={Link} to={`/user/update-blog/${post.postId}`}
+              
+                color='warning' className='ms-2'>
+                Update
+              </Button> : '')
+            }
+
+             
             </div>
         </CardBody>
     </Card>
