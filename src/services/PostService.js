@@ -57,3 +57,8 @@ export function deletePostService(postId){
 export const loadPost = (postId) =>{
   return myAxios.get(`posts/` +postId).then((response)=>response.data);
 }
+
+export function updatePostService(post, postId){
+  console.log(post)
+  return privateAxios.put(`/posts/${postId}`, post).then((res)=> res.data)
+}

@@ -3,7 +3,7 @@ import Base from '../components/Base'
 import {  useNavigate, useParams } from 'react-router-dom'
 import userContext from '../context/userContext'
 import { toast } from 'react-toastify'
-import {  loadPost } from '../services/PostService'
+import {  loadPost, updatePostService } from '../services/PostService'
 import { Button, Card,Form, CardBody, CardHeader, Container, FormGroup, Input, Label } from 'reactstrap'
 import { loadAllCategories } from '../services/CategoryService'
 import JoditEditor from 'jodit-react'; 
@@ -35,7 +35,7 @@ const UpdateBlog = () => {
 
         //load blog from db
         loadPost(blogId).then(data=>{
-            setPost({ ...data })
+            setPost({ ...data, categoryId: data.category.categoryId })
         }).catch(error=>{
             console.log(error)
             toast.error("Error in loading Blog")
@@ -59,6 +59,20 @@ const handleChange=(event, fieldName)=>{
 })
 }
 
+const updatePost=(event)=>{
+    event.preventDefault();
+    console.log(post)
+    updatePostService({...post, category: {categoryId:post.categoryId }}, post.postId)
+    .then(response=>{
+        console.log(response)
+        toast.success("post updated")
+    }).catch(error=>{
+        console.log(error)
+        toast.error("error in updating post")
+    })
+}
+
+
 const updateHtml=()=>{
     return(
 
@@ -69,8 +83,8 @@ const updateHtml=()=>{
         <h1 className='text-center'>Please Update Post Here</h1>
       </CardHeader>
       <CardBody>
-        {JSON.stringify(post)}
-<Form onSubmit={''}>
+        {/* {JSON.stringify(post)} */}
+<Form onSubmit={updatePost}>
     <FormGroup>
         <Label for="title">
         Title
@@ -101,7 +115,7 @@ const updateHtml=()=>{
         value={post.content}
         // config={config}
         // onChange={newContent=>setContent(newContent)}
-        onChange={''}
+        onChange={newContent=>setPost({...post, content:newContent})}
         />
     </FormGroup>
 
@@ -126,9 +140,9 @@ const updateHtml=()=>{
         id="category"
         name="categoryId"
         type="select"
-        onChange={''}
-        defaultValue={0}
-        value={post.category.categoryId}
+        onChange={(event) => handleChange(event, 'categoryId')}
+        // defaultValue={0}
+        value={ post.categoryId }
         >
 
             <option disabled value={0}> Select Category </option>
