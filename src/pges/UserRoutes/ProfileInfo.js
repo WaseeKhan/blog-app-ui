@@ -9,6 +9,10 @@ import profileImage from '../../images/defaultProfile.png'
 import ViewUserProfile from '../../components/ViewUserProfile';
 
 const ProfileInfo = () => {
+  useEffect(()=>{
+    document.title = "Artikance : Profile "
+  })
+
 // const object = useContext(userContext)
 const {userId} = useParams()
 const [user, setUser] = useState(null)

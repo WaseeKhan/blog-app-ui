@@ -6,6 +6,10 @@ import CategorySideMenu from '../components/CategorySideMenu'
 
 const Home = () => {
 
+  useEffect(()=>{
+    document.title = "Artikance : Home "
+  })
+
   return (
       <Base>
       <Container className='mt-3'>

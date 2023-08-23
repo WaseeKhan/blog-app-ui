@@ -8,6 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Signup() {
 
+  useEffect(()=>{
+    document.title = "Artikance : Register "
+  })
+
+
 
 
  const navigate = useNavigate();

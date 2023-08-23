@@ -11,6 +11,10 @@ import Base from './Base';
 
 
 const AddPost = () => {
+    useEffect(()=>{
+        document.title = "Artikance : Add Post "
+      })
+    
 
     const editor = useRef(null);
     // const [content, setContent] = useState('');

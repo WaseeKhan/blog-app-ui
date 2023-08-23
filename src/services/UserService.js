@@ -17,3 +17,8 @@ export const loginUser = (loginDetail) => {
 export const getUserById=(userId)=>{
   return privateAxios.get(`/users/${userId}`).then(res=>res.data)
 }
+
+export const getAllUserService=()=>{
+  return privateAxios.get(`/users`)
+  .then(response=>response.data)
+}

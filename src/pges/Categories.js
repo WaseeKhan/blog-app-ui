@@ -9,6 +9,11 @@ import Post from '../components/Post'
 
 
 function Categories() {
+
+  useEffect(()=>{
+    document.title = "Artikance : Categories Wise Posts"
+  })
+
     const [posts, setPosts] = useState([])
 
     const {categoryId} = useParams()

@@ -19,6 +19,7 @@ import Index from './TypingApp/Index'
 import UpdateBlog from './pges/UpdateBlog';
 import Dashboard from './pges/UserRoutes/Dashboard';
 import YourPosts from './pges/UserRoutes/YourPosts';
+import AllUsers from './components/AllUsers';
 
 
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="add-post" element={<AddPost />}></Route>
         <Route path="update-blog/:blogId" element={<UpdateBlog />}></Route>
         <Route path="your-posts/" element={<YourPosts />}></Route>
+        <Route path="all-users/" element={<AllUsers />}></Route>
       </Route>
       
     </Routes>

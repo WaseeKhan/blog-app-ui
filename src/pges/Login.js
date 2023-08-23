@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Base from '../components/Base'
 
 import { Form, Button, Card, CardBody, CardHeader, FormGroup, Input, Label, Row, Col, Spinner } from 'reactstrap'
@@ -9,6 +9,10 @@ import { useNavigate } from 'react-router-dom'
 import userContext from '../context/userContext'
 
 function Login() {
+  useEffect(()=>{
+    document.title = "Artikance : Login "
+  })
+
 const userContextData = useContext(userContext);
 
   const navigate = useNavigate();

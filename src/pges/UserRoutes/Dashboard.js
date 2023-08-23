@@ -9,6 +9,10 @@ import Post from '../../components/Post'
 import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
+  useEffect(()=>{
+    document.title = "Artikance : Dashboard "
+  })
+
 
     const [postContent, setPostContent] =  useState({
         content:[],
@@ -22,15 +26,8 @@ const Dashboard = () => {
       const [currentPage, setCurrentPage] = useState(0)
   
       useEffect(()=>{
-        // //load all posts from server
-        // loadAllPosts(0, 5).then((data)=>{
-        //   console.log(data);
-        //   setPostContent(data)
-        // }).catch(error=>{
-        //   console.log(error)
-        //   toast.error("Error in loading data")
-        // })
-  
+      
+
         changePage(currentPage)
         
       },[currentPage])
@@ -151,7 +148,7 @@ const Dashboard = () => {
         <Row>
             <Col className="bg-light border">
             
-            <Link to="/user/your-posts/"><h4>See Your Posts</h4></Link>
+            <Link to="/user/all-users/"><h4>See All User</h4></Link>
             </Col>
             <Col className="bg-light border">
             <Link to="/"><h4>See All Posts</h4></Link>

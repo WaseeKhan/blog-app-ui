@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Base from '../components/Base'
 import userContext from '../context/userContext'
 
 const About = () => {
+  useEffect(()=>{
+    document.title = "Artikance : About "
+  })
+
   return (
     <userContext.Consumer>
       {(object) =>(

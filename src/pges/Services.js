@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Base from '../components/Base'
 import userContext from '../context/userContext'
 
 const Services = () => {
+  useEffect(()=>{
+    document.title = "Artikance : Services "
+  })
+
   return (
    <userContext.Consumer>
     {
