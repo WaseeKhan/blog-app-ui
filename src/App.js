@@ -7,10 +7,8 @@ import Login from './pges/Login';
 import Signup from './pges/Signup';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Userdashboard from './pges/UserRoutes/Userdashboard';
 import Privateroute from './components/Privateroute';
 import ProfileInfo from './pges/UserRoutes/ProfileInfo';
-import Services from './pges/Services';
 import AddPost from './components/AddPost';
 import PostPage from './pges/PostPage';
 import UserProvider from './context/UserProvider';
@@ -20,6 +18,7 @@ import UpdateBlog from './pges/UpdateBlog';
 import Dashboard from './pges/UserRoutes/Dashboard';
 import YourPosts from './pges/UserRoutes/YourPosts';
 import AllUsers from './components/AllUsers';
+import Contact from './pges/Contact';
 
 
 
@@ -33,7 +32,7 @@ function App() {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/about" element={<About />}></Route>
-      <Route path="/services" element={<Services />}></Route>
+      <Route path="/contact" element={<Contact />}></Route>
       <Route path="/posts/:postId" element={<PostPage />}></Route>
       <Route path="/categories/:categoryId" element={<Categories />}></Route>
       <Route path="/typing-app" element={<Index />}></Route>

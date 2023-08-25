@@ -73,7 +73,7 @@ const CustomNavbar = () => {
               <NavLink style={{color:'#FFFFFF', fontFamily:'verdana' }} tag={ReactLink} to="/typing-app">TYPING APP</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink style={{color:'#FFFFFF' , fontFamily:'verdana' }} tag={ReactLink} to="/services">SERVICES</NavLink>
+              <NavLink style={{color:'#FFFFFF' , fontFamily:'verdana' }} tag={ReactLink} to="/contact">CONTACT US</NavLink>
             </NavItem>
             
             

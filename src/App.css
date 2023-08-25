@@ -9,3 +9,8 @@ body{
 .background-red {
   background-color: red
 }
+
+.footer{
+  background: #610345;
+  color: #eceff1; 
+}
