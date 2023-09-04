@@ -3,6 +3,8 @@ import Base from '../components/Base'
 import NewFeed from '../components/NewFeed'
 import { Col, Container, Row } from 'reactstrap'
 import CategorySideMenu from '../components/CategorySideMenu'
+import TraindingPost from './TraindingPosts'
+import ImageSlide from '../components/ImageSlide'
 
 const Home = () => {
 
@@ -12,17 +14,28 @@ const Home = () => {
 
   return (
       <Base>
-      <Container className='mt-3'>
+      <Container className='mt-1'>
 
-
+      <ImageSlide />
       <Row>
-        <Col md={3} className='pt-3'>
+        <Col md={4}>
           <CategorySideMenu />
         </Col>
-        <Col md={9}>
+        <Col md={8}>
+        
           <NewFeed />
         </Col>
+        <Col md={3}>
+        {/* <TraindingPost /> */}
+        </Col>
       </Row>
+
+
+{/* right */}
+
+     
+     
+
       </Container>
       
     

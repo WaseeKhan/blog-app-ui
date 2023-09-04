@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Card, CardBody, CardFooter, Col, Container, Row, Table } from 'reactstrap';
+import { Button, Card, CardBody, CardFooter, Col, Container, Table } from 'reactstrap';
 import profileImage from '../images/defaultProfile.png'
 import { getCurrentUserDetail, isLoggedIn } from '../auth';
+import { Link } from 'react-router-dom';
 
 
 const ViewUserProfile = ({user}) => {
@@ -20,12 +21,15 @@ useEffect(() => {
   return (
     <Card>
           <CardBody>
-            <h2 className='text-uppercase text-center'>User Information</h2>
+            <h2 className='text-uppercase text-center'>Profile Information</h2>
+
             <Container className='text-center'>
              <img src={user.image ? user.image : profileImage}  
              style={{maxWidth:'200px', maxHeight:'200px'}}
              alt='Profile Picture' className='img-fluids3 '/> 
             </Container>
+            
+
             <Table responsive striped hover className='mt-5'>
             <tbody>
               <tr>
@@ -58,7 +62,7 @@ useEffect(() => {
                 
                 currentUser ? ( currentUser.id === user.id  ) ? (
                     <CardFooter className='text-center'>
-                    <Button color="warning" >Update Profile</Button>
+                    <Button color="warning" tag={Link} to={`/user/update-profile/${user.id}`} >Update Profile</Button>
                 </CardFooter>
                 ) :'' : ''
             }

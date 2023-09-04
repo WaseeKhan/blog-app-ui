@@ -66,6 +66,8 @@ const updatePost=(event)=>{
     .then(response=>{
         console.log(response)
         toast.success("post updated")
+        navigate("/")
+        
     }).catch(error=>{
         console.log(error)
         toast.error("error in updating post")

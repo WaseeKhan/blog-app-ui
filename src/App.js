@@ -19,13 +19,13 @@ import Dashboard from './pges/UserRoutes/Dashboard';
 import YourPosts from './pges/UserRoutes/YourPosts';
 import AllUsers from './components/AllUsers';
 import Contact from './pges/Contact';
-
+import UpdateProfile from './pges/UpdateProfile';
 
 
 function App() {
   return (
     <UserProvider>
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
 
     <Routes>
       <Route path="/" element={<Home />}></Route>
@@ -45,6 +45,7 @@ function App() {
         <Route path="update-blog/:blogId" element={<UpdateBlog />}></Route>
         <Route path="your-posts/" element={<YourPosts />}></Route>
         <Route path="all-users/" element={<AllUsers />}></Route>
+        <Route path="update-profile/:userId" element={<UpdateProfile />}></Route>
       </Route>
       
     </Routes>
